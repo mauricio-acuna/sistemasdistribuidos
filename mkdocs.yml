@@ -1,5 +1,5 @@
-锘縮ite_name: ODIN - Gu铆a de Sistemas Distribuidos
-site_description: Gu铆a t茅cnica completa para sistemas distribuidos, consenso, concurrencia multihilo y alta performance
+site_name: ODIN - Gu韆 de Sistemas Distribuidos
+site_description: Gu韆 t閏nica completa para sistemas distribuidos, consenso, concurrencia multihilo y alta performance
 site_author: Platform Engineering / Distributed Systems Guild
 site_url: https://odin-distributed-systems.github.io
 
@@ -126,35 +126,49 @@ plugins:
 nav:
   - Inicio: index.md
   - Fundamentos:
-    - Introducci贸n: fundamentos/index.md
+    - fundamentos/index.md
+    - Tiempo y Relojes: fundamentos/tiempo-relojes.md
+    - Detecci髇 de Fallos: fundamentos/deteccion-fallos.md
+    - Consenso: fundamentos/consenso.md
+    - Consistencia: fundamentos/consistencia.md
+    - CAP y PACELC: fundamentos/cap_pacelc.md
+  - Concurrencia:
+    - concurrencia/index.md
+  - Operaci髇:
+    - Observabilidad: operacion/observabilidad.md
+  - Referencia:
+    - Glosario: referencia/glosario.md
+  - Inicio: index.md
+  - Fundamentos:
+    - Introducci髇: fundamentos/index.md
     - Consenso: fundamentos/consenso.md
     - Consistencia: fundamentos/consistencia.md
     - CAP y PACELC: fundamentos/cap_pacelc.md
     - Tiempo y Relojes: fundamentos/relojes.md
-    - Detecci贸n de Fallos: fundamentos/fallos.md
+    - Detecci髇 de Fallos: fundamentos/fallos.md
   - Concurrencia:
-    - Introducci贸n: concurrencia/index.md
+    - Introducci髇: concurrencia/index.md
     - Estructuras Lock-Free: concurrencia/lock_free.md
     - Thread Pools Aislados: concurrencia/thread_pools.md
     - Backpressure: concurrencia/backpressure.md
     - Patrones Avanzados: concurrencia/patrones.md
-  - Operaci贸n:
-    - Introducci贸n: operacion/index.md
+  - Operaci髇:
+    - Introducci髇: operacion/index.md
     - Observabilidad: operacion/observabilidad.md
-    - SLOs y M茅tricas: operacion/slos.md
+    - SLOs y M閠ricas: operacion/slos.md
     - Despliegue: operacion/despliegue.md
     - Runbooks: operacion/runbooks.md
   - Pruebas:
-    - Introducci贸n: pruebas/index.md
+    - Introducci髇: pruebas/index.md
     - JCStress: pruebas/jcstress.md
     - Estilo Jepsen: pruebas/jepsen_style.md
     - Chaos Engineering: pruebas/chaos.md
-    - TLA+ y Verificaci贸n: pruebas/tla_plus.md
+    - TLA+ y Verificaci髇: pruebas/tla_plus.md
   - Recetas:
-    - Introducci贸n: recetas/index.md
+    - Introducci髇: recetas/index.md
     - Perfiles de Pools: recetas/perfiles_pools.md
     - Configuraciones: recetas/configs.md
-    - Ejemplos Pr谩cticos: recetas/ejemplos.md
+    - Ejemplos Pr醕ticos: recetas/ejemplos.md
   - Recursos:
     - Biblioteca: recursos/biblioteca.md
     - Herramientas: recursos/herramientas.md

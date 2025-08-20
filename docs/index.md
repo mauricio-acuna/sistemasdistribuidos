@@ -1,136 +1,253 @@
 ﻿---
-title: "ODIN - Guía de Sistemas Distribuidos"
-description: "Guía técnica completa para sistemas distribuidos, consenso, concurrencia multihilo y alta performance"
-hide:
-  - navigation
-  - toc
+title: "ODIN - Guía Avanzada de Sistemas Distribuidos"
+description: "Fundamentos teóricos y patrones prácticos para construir sistemas distribuidos de clase mundial"
 ---
 
-# ODIN - Guía de Sistemas Distribuidos
+# 🚀 ODIN - Guía Avanzada de Sistemas Distribuidos
 
-<div class="grid cards" markdown>
-
--   :material-account-group-outline:{ .lg .middle } **Para Equipos de Plataforma**
-
-    ---
-
-    Documentación técnica avanzada para ingenieros que construyen y mantienen sistemas distribuidos complejos de alta performance.
-
-    [:octicons-arrow-right-24: Comenzar](fundamentos/)
-
--   :material-lightbulb-outline:{ .lg .middle } **Fundamentos Teóricos**
-
-    ---
-
-    Consenso, consistencia, CAP/PACELC, relojes lógicos y detección de fallos. Los pilares conceptuales de sistemas distribuidos.
-
-    [:octicons-arrow-right-24: Explorar fundamentos](fundamentos/)
-
--   :material-cpu-64-bit:{ .lg .middle } **Concurrencia Multihilo**
-
-    ---
-
-    Estructuras lock-free, thread pools aislados, backpressure y patrones avanzados para máximo rendimiento.
-
-    [:octicons-arrow-right-24: Ver concurrencia](concurrencia/)
-
--   :material-chart-line:{ .lg .middle } **Observabilidad & SLOs**
-
-    ---
-
-    Métricas, trazas, dashboards y alertas para sistemas de producción con requisitos de alta disponibilidad.
-
-    [:octicons-arrow-right-24: Aprender observabilidad](operacion/)
-
-</div>
-
-## ¿Por qué esta guía?
-
-ODIN implementa una arquitectura multithreaded y distribuida que aborda **consenso**, **consistencia**, **tolerancia a particiones** y **detección de fallos**. Esta guía surge de la necesidad de:
-
-!!! success "Objetivos Clave"
+!!! quote "Fundamento"
     
-    - **Homogeneizar conocimiento** del equipo en fundamentos distribuidos
-    - **Reducir incidentes** por saturación de pools, deadlocks y regresiones de consistencia  
-    - **Acelerar decisiones** de diseño con plantillas, checklists y evidencia de benchmarks
-
-## SLOs de Referencia
-
-Los sistemas que construimos deben cumplir estándares de clase mundial:
-
-| Métrica | Objetivo | Umbral Crítico |
-|---------|----------|----------------|
-| **Disponibilidad** | ≥ 99.95% mensual | < 99.9% |
-| **Latencia p95** | < 20ms (lectura) | > 50ms |
-| **Latencia p99** | < 60ms (lectura) | > 120ms |
-| **Escritura con consenso p99** | < 120ms | > 200ms |
-| **Cambios de líder** | < 2/hora | > 5/hora |
-| **MTTR Sev-2** | < 20 min | > 45 min |
-
-## Principios de Diseño
-
-=== "Complejidad vs Performance"
-
-    Solo adoptar complejidad que reduzca latencia o aumente throughput con **beneficios demostrables**.
-
-=== "Separation of Concerns"
-
-    Pools aislados por tipo de carga; límites y backpressure en cada frontera.
-
-=== "Fail-Fast & Observability-First"
-
-    Timeouts, circuit breakers, métricas y trazas desde el día 0.
-
-=== "Idempotencia & Reintentos"
-
-    Handlers externos idempotentes; exactamente-una-vez solo donde sea garantizable.
-
-## Navegación Rápida
-
-<div class="grid cards" markdown>
-
--   **[Consenso](fundamentos/consenso.md)**
+    **"La simplicidad es la máxima sofisticación en sistemas distribuidos"**
     
-    Raft, Paxos, leader election y replicación de logs
-
--   **[Thread Pools](concurrencia/thread_pools.md)**
-    
-    Dimensionamiento, aislamiento y topologías recomendadas
-
--   **[Backpressure](concurrencia/backpressure.md)**
-    
-    Control de flujo y prevención de cascadas de fallo
-
--   **[Observabilidad](operacion/observabilidad.md)**
-    
-    OpenTelemetry, Prometheus y dashboards de referencia
-
--   **[JCStress](pruebas/jcstress.md)**
-    
-    Pruebas de concurrencia y validación de estructuras lock-free
-
--   **[Runbooks](operacion/runbooks.md)**
-    
-    Procedimientos operativos para incidentes comunes
-
-</div>
-
-## Recursos Destacados
-
-!!! tip "Papers Fundamentales"
-    
-    - [Lamport - Time, Clocks, and the Ordering of Events](recursos/biblioteca.md#lamport-time-clocks)
-    - [Ongaro & Ousterhout - In Search of an Understandable Consensus Algorithm (Raft)](recursos/biblioteca.md#raft-paper)
-    - [Abadi - PACELC](recursos/biblioteca.md#pacelc)
-    - [Dean & Barroso - The Tail at Scale](recursos/biblioteca.md#tail-at-scale)
-
-!!! example "Herramientas Esenciales"
-    
-    - **[jcstress](recursos/herramientas.md#jcstress)** - Pruebas de concurrencia
-    - **[Jepsen](recursos/herramientas.md#jepsen)** - Validación de consistencia
-    - **[async-profiler](recursos/herramientas.md#async-profiler)** - Profiling de performance
-    - **[TLA+](recursos/herramientas.md#tla-plus)** - Verificación formal
+    Esta guía combina **rigor académico** con **pragmatismo industrial** para equipos que construyen y mantienen sistemas distribuidos complejos.
 
 ---
 
-**Última actualización:** Agosto 2025 | **Versión:** 1.0 | **Estado:** Producción
+## 🎯 ¿Qué Encontrarás Aquí?
+
+### 📖 **Contenido Técnico Profundo**
+- **Algoritmos de Consenso**: Raft, Paxos, Multi-Paxos con implementaciones completas
+- **Modelos de Consistencia**: Desde linearizable hasta eventual consistency  
+- **Teoremas Fundamentales**: CAP, PACELC, FLP con casos prácticos
+- **Patrones de Concurrencia**: Lock-free, actor model, CSP avanzado
+
+### 🛠️ **Implementaciones Reales**
+- Código production-ready en Java, Go, Rust
+- Benchmarks de performance detallados
+- Testing de propiedades con jcstress, TLA+
+- Casos de estudio de sistemas reales
+
+### 🔧 **Recetas Operacionales**  
+- Configuraciones battle-tested
+- Playbooks de troubleshooting
+- Métricas y alertas esenciales
+- Patterns de deployment
+
+---
+
+## 🗺️ Rutas de Aprendizaje
+
+### 🟢 **Fundamentos Sólidos** (Nivel Intermedio)
+
+**Comienza aquí si necesitas entender los conceptos base:**
+
+1. [**📐 Tiempo y Relojes**](fundamentos/tiempo-relojes.md) - Base para entender ordenamiento
+2. [**🚨 Detección de Fallos**](fundamentos/deteccion-fallos.md) - Prerrequisito para consenso  
+3. [**🗳️ Consenso**](fundamentos/consenso.md) - Algoritmos fundamentales
+4. [**🔄 Consistencia**](fundamentos/consistencia.md) - Modelos y garantías
+5. [**⚖️ CAP y PACELC**](fundamentos/cap_pacelc.md) - Trade-offs y decisiones
+
+### 🟡 **Concurrencia Avanzada** (Nivel Avanzado)
+
+**Para optimizar performance y scalabilidad:**
+
+1. [**🔒 Algoritmos Lock-Free**](concurrencia/lock-free.md) - Estructuras sin bloqueos
+2. [**🌊 Backpressure Patterns**](concurrencia/index.md) - Control de flujo reactivo
+3. [**🎭 Actor Model**](concurrencia/index.md) - Concurrencia por mensajes
+4. [**📈 Thread Pool Tuning**](concurrencia/index.md) - Configuraciones optimizadas
+
+### 🟠 **Observabilidad Moderna** (Nivel Práctico)
+
+**Para sistemas en producción:**
+
+1. [**📊 Métricas y OpenTelemetry**](operacion/observabilidad.md) - Monitoring distribuido
+2. [**🔍 Distributed Tracing**](operacion/observabilidad.md) - Debugging en microservicios
+3. [**📈 SRE y Error Budgets**](operacion/observabilidad.md) - Reliability engineering
+4. [**💥 Chaos Engineering**](operacion/observabilidad.md) - Testing de resilencia
+
+### 🔴 **Testing Avanzado** (Nivel Experto)
+
+**Para garantizar correctness:**
+
+1. [**⚡ Concurrency Testing**](pruebas/jcstress.md) - jcstress y property-based
+2. [**🔬 Formal Verification**](pruebas/jcstress.md) - TLA+ specifications  
+3. [**🌪️ Chaos Engineering**](pruebas/jcstress.md) - Fault injection
+4. [**📊 Performance Testing**](pruebas/jcstress.md) - Load testing distribuido
+
+---
+
+## 🚀 Quick Start
+
+### 📚 **Si eres nuevo en sistemas distribuidos:**
+
+**Empieza con los fundamentos →** [Tiempo y Relojes](fundamentos/tiempo-relojes.md)
+
+### 🔧 **Si tienes experiencia pero buscas optimizar:**
+
+**Dirígete a patrones avanzados →** [Algoritmos Lock-Free](concurrencia/lock-free.md)
+
+### 🚨 **Si tienes problemas en producción:**
+
+**Consulta troubleshooting →** [Observabilidad](operacion/observabilidad.md)
+
+### 🧪 **Si quieres validar tu código:**
+
+**Explora testing especializado →** [jcstress Testing](pruebas/jcstress.md)
+
+---
+
+## 🎯 Audiencia Objetivo
+
+### 👨‍💻 **Arquitectos de Software**
+- Diseñando sistemas distribuidos complejos
+- Evaluando trade-offs de consistency vs availability
+- Seleccionando algoritmos de consenso apropiados
+
+### 🔧 **Ingenieros Senior**  
+- Implementando patrones de concurrencia avanzados
+- Optimizando performance de sistemas distribuidos
+- Debugging problemas de race conditions
+
+### 🚀 **DevOps/SRE Engineers**
+- Operando infraestructura crítica
+- Configurando monitoring y alertas
+- Implementando chaos engineering
+
+### 👥 **Equipos de Desarrollo**
+- Migrando a arquitecturas de microservicios
+- Implementando event sourcing y CQRS
+- Construyendo sistemas event-driven
+
+---
+
+## 📊 **Qué Hace Única Esta Guía**
+
+### 🎓 **Rigor Académico**
+- Basada en papers de investigación verificados
+- Referencias a autores reconocidos (Lamport, Lynch, Brewer)
+- Definiciones formales y propiedades matemáticas
+
+### 🏭 **Pragmatismo Industrial**  
+- Implementaciones production-ready
+- Casos de estudio de sistemas reales (Kafka, Cassandra, Spanner)
+- Configuraciones battle-tested
+
+### 🧪 **Validación Empírica**
+- Benchmarks de performance medibles
+- Testing de correctness con herramientas especializadas
+- Chaos engineering para validar resilencia
+
+### 📖 **Claridad Pedagógica**
+- Explicaciones graduales con analogías efectivas
+- Diagramas y visualizaciones
+- Ejemplos de código comentado
+
+---
+
+## 🔍 **Explorar por Tema**
+
+<div class="grid cards" markdown>
+
+-   :material-clock-fast:{ .lg .middle } **Tiempo y Ordering**
+
+    ---
+
+    Fundamentos de ordenamiento temporal en sistemas distribuidos
+
+    [:octicons-arrow-right-24: Tiempo y Relojes](fundamentos/tiempo-relojes.md)
+
+-   :material-alert-circle:{ .lg .middle } **Failure Detection**
+
+    ---
+
+    Algoritmos para detectar fallos de forma robusta
+
+    [:octicons-arrow-right-24: Detección de Fallos](fundamentos/deteccion-fallos.md)
+
+-   :material-vote:{ .lg .middle } **Consenso**
+
+    ---
+
+    Raft, Paxos y algoritmos de acuerdo distribuido
+
+    [:octicons-arrow-right-24: Algoritmos de Consenso](fundamentos/consenso.md)
+
+-   :material-sync:{ .lg .middle } **Consistencia**
+
+    ---
+
+    Modelos de consistencia y sus garantías
+
+    [:octicons-arrow-right-24: Modelos de Consistencia](fundamentos/consistencia.md)
+
+-   :material-scale-balance:{ .lg .middle } **CAP y PACELC**
+
+    ---
+
+    Trade-offs fundamentales en sistemas distribuidos
+
+    [:octicons-arrow-right-24: Teoremas CAP/PACELC](fundamentos/cap_pacelc.md)
+
+-   :material-lightning-bolt:{ .lg .middle } **Lock-Free**
+
+    ---
+
+    Algoritmos de alta performance sin bloqueos
+
+    [:octicons-arrow-right-24: Algoritmos Lock-Free](concurrencia/lock-free.md)
+
+-   :material-chart-line:{ .lg .middle } **Observabilidad**
+
+    ---
+
+    Monitoring, tracing y debugging distribuido
+
+    [:octicons-arrow-right-24: Observabilidad Moderna](operacion/observabilidad.md)
+
+-   :material-test-tube:{ .lg .middle } **Testing**
+
+    ---
+
+    Validación de correctness en código concurrente
+
+    [:octicons-arrow-right-24: Testing jcstress](pruebas/jcstress.md)
+
+</div>
+
+---
+
+## 📚 **Recursos Adicionales**
+
+### 🔗 **Referencias Rápidas**
+- [**📖 Glosario**](referencia/glosario.md) - Términos técnicos fundamentales
+- [**📚 Biblioteca**](recursos/biblioteca.md) - Papers y libros recomendados  
+- [**🛠️ Herramientas**](recursos/biblioteca.md) - Frameworks y utilidades
+
+### 🤝 **Contribuir**
+- [**📋 Guía de Contribución**](https://github.com/mauricio-acuna/sistemasdistribuidos/blob/main/CONTRIBUTING.md)
+- [**🐛 Reportar Issues**](https://github.com/mauricio-acuna/sistemasdistribuidos/issues)
+- [**💬 Discusiones**](https://github.com/mauricio-acuna/sistemasdistribuidos/discussions)
+
+---
+
+!!! success "¡Comienza tu Journey!"
+    
+    **¿Listo para dominar los sistemas distribuidos?**
+    
+    👉 [**Empezar con Tiempo y Relojes**](fundamentos/tiempo-relojes.md) 
+    
+    O explorar directamente: [Consenso](fundamentos/consenso.md) | [Consistencia](fundamentos/consistencia.md) | [Lock-Free](concurrencia/lock-free.md)
+
+!!! tip "Recomendación"
+    
+    **Para máximo provecho:** Lee los fundamentos secuencialmente, luego explora temas específicos según tus necesidades. Cada página incluye implementaciones funcionales que puedes probar.
+
+---
+
+<div align="center">
+
+**⭐ Si esta guía te resulta útil, [dale una star en GitHub](https://github.com/mauricio-acuna/sistemasdistribuidos)! ⭐**
+
+*Construido con ❤️ para la comunidad de sistemas distribuidos*
+
+</div>
