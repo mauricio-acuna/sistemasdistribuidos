@@ -1,0 +1,165 @@
+﻿site_name: ODIN - Guía de Sistemas Distribuidos
+site_description: Guía técnica completa para sistemas distribuidos, consenso, concurrencia multihilo y alta performance
+site_author: Platform Engineering / Distributed Systems Guild
+site_url: https://odin-distributed-systems.github.io
+
+repo_name: odin-distributed-systems
+repo_url: https://github.com/odin-distributed-systems/guide
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2025 Platform Engineering Guild
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - toc.follow
+    - toc.integrate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/network
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/odin-distributed-systems
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:platform-engineering@company.com
+  version:
+    provider: mike
+    default: latest
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      lang: es
+      separator: '[\s\-,:!=\[\]()"/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  - git-committers:
+      repository: odin-distributed-systems/guide
+      branch: main
+
+nav:
+  - Inicio: index.md
+  - Fundamentos:
+    - Introducción: fundamentos/index.md
+    - Consenso: fundamentos/consenso.md
+    - Consistencia: fundamentos/consistencia.md
+    - CAP y PACELC: fundamentos/cap_pacelc.md
+    - Tiempo y Relojes: fundamentos/relojes.md
+    - Detección de Fallos: fundamentos/fallos.md
+  - Concurrencia:
+    - Introducción: concurrencia/index.md
+    - Estructuras Lock-Free: concurrencia/lock_free.md
+    - Thread Pools Aislados: concurrencia/thread_pools.md
+    - Backpressure: concurrencia/backpressure.md
+    - Patrones Avanzados: concurrencia/patrones.md
+  - Operación:
+    - Introducción: operacion/index.md
+    - Observabilidad: operacion/observabilidad.md
+    - SLOs y Métricas: operacion/slos.md
+    - Despliegue: operacion/despliegue.md
+    - Runbooks: operacion/runbooks.md
+  - Pruebas:
+    - Introducción: pruebas/index.md
+    - JCStress: pruebas/jcstress.md
+    - Estilo Jepsen: pruebas/jepsen_style.md
+    - Chaos Engineering: pruebas/chaos.md
+    - TLA+ y Verificación: pruebas/tla_plus.md
+  - Recetas:
+    - Introducción: recetas/index.md
+    - Perfiles de Pools: recetas/perfiles_pools.md
+    - Configuraciones: recetas/configs.md
+    - Ejemplos Prácticos: recetas/ejemplos.md
+  - Recursos:
+    - Biblioteca: recursos/biblioteca.md
+    - Herramientas: recursos/herramientas.md
+    - Cursos y Videos: recursos/cursos.md
+  - Referencia:
+    - Glosario: referencia/glosario.md
+    - Checklists: referencia/checklists.md
+    - Roadmap: referencia/roadmap.md

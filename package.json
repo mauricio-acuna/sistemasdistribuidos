@@ -1,0 +1,21 @@
+﻿{
+  "name": "odin-distributed-systems-guide",
+  "version": "1.0.0",
+  "description": "Guía técnica completa para sistemas distribuidos, consenso, concurrencia multihilo y alta performance",
+  "scripts": {
+    "dev": "mkdocs serve",
+    "build": "mkdocs build",
+    "deploy": "mkdocs gh-deploy"
+  },
+  "keywords": [
+    "distributed-systems",
+    "consensus",
+    "raft",
+    "paxos",
+    "consistency",
+    "concurrency",
+    "documentation"
+  ],
+  "author": "Platform Engineering Guild",
+  "license": "MIT"
+}
